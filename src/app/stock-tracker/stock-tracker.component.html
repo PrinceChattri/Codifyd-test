@@ -1,0 +1,17 @@
+<section class="stock-container">
+  <div class="header">
+    <div>Action
+      <mat-checkbox class="example-margin" [(ngModel)]="checked" (change)="getData()"> <span *ngIf="isFetching"
+          class="fetch">Fetching...</span></mat-checkbox>
+    </div>
+    <div>Stock <span>ICICI</span> </div>
+    <div>Start <span class="time">{{currentTime}}</span>
+    </div>
+    <div>Data Points <span> <span *ngIf="isFetching" class="fetch">Fetching Data Points..</span>
+      <span *ngFor="let item of dataPoint">{{item}} - </span></span>
+    </div>
+    <div>Graph <app-line-chart [data]="stockData"></app-line-chart>
+    </div>
+  </div>
+  <span class="custom-btn" (click)="addStocks()">Add More Stocks</span>
+</section>
